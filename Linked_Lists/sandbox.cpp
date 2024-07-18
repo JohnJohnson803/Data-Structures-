@@ -18,18 +18,14 @@ void newNode(Node** head, int newValue)
 
 int main()
 {
-    Node* head = new Node();
-    head->value = 1;
-
-    Node* second = new Node();
-    second->value = 2;
-
-    head->next = second;
-    second->next = NULL;
-
-    newNode(&head, -1);
-    std::cout << head->value << std::endl;
-
-
+    std::string name = "123456789";
+	int sum = 0;
+	std::string temp = "";
+	for(int i=0; i<9; i++)
+	{	
+		temp = (name[i]);
+		sum += std::stoi(temp);
+	}
+	std::cout << sum << std::endl;
     return 0;
 }

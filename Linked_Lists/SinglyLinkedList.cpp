@@ -197,6 +197,22 @@ class SinglyLinkedList{
 			}
 		}
 
+		void reverseEntireList()
+		{
+			Node* currentPtr = head;
+			Node* nextPtr; 
+			Node* prevPtr = NULL;
+
+			while(currentPtr != NULL)
+			{
+				nextPtr = currentPtr->next;
+				currentPtr->next = prevPtr;
+				prevPtr = currentPtr;
+				currentPtr = nextPtr;
+			}
+				head = prevPtr;
+		}
+
 		void printEntireList()
 		{
 			//First check to see if there is anything in the List
@@ -209,8 +225,10 @@ class SinglyLinkedList{
 				Node* ptr = head;
 				while(ptr != NULL)
 				{
-					std::cout << "Node with Key: " << ptr->key << " , Data: " << ptr->data << std::endl;
+					//std::cout << "Node with Key: " << ptr->key << " , Data: " << ptr->data << std::endl;
+					std::cout << ptr->key << " ";
 					ptr = ptr->next;
+
 				}
 			}
 		}
@@ -230,6 +248,7 @@ int main()
 		std::cout << "4. deleteNodeByKey()" << std::endl;
 		std::cout << "5. updateNodeByKey()" << std::endl;
 		std::cout << "6. print()" << std::endl;
+		std::cout << "8. ReverseEntireList()" << std::endl;
 		std::cout << "7. Clear Screen" << std::endl << std::endl;
 
 		std::cout << "Option: ";
@@ -295,6 +314,11 @@ int main()
 			case 6:
 				std::cout << "Printing All Items in List" << std::endl << std::endl;
 				s.printEntireList();
+				break;
+
+			case 8:
+				std::cout << "Reversing Entire List" << std::endl << std::endl;
+				s.reverseEntireList();
 				break;
 			
 			case 7:
